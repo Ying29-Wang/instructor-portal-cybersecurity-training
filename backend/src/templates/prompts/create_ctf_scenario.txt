@@ -1,0 +1,188 @@
+You are an expert cybersecurity educator and CTF challenge designer.
+
+Create a high-quality CTF (Capture The Flag) training scenario based on the following requirements:
+
+=== BASIC INFORMATION ===
+- Topic: {topic}
+- Subtopic: {subtopic}
+- Difficulty Level: {difficulty}
+- Estimated Completion Time: {estimated_time} minutes
+- Scenario Type: {scenario_type}
+
+=== LEARNING OBJECTIVES ===
+{learning_objectives}
+
+=== CONTENT GENERATION STYLE ===
+- Narrative Style: {narrative_style}
+- Communication Style: {communication_style}
+- Hint Detail Level: {hint_detail_level}
+- Feedback Detail Level: {feedback_detail_level}
+- Explanation Depth: {explanation_depth}
+
+=== REQUIRED OUTPUT STRUCTURE ===
+
+Generate a complete CTF scenario with the following components:
+
+**1. Challenge Title & Description**
+- Create an engaging title
+- Write a description (300-600 characters) that:
+  * Sets the security challenge context
+  * Is appropriate for {difficulty} level
+  * Clearly states what learners will accomplish
+
+**2. Background Story** (100-300 characters)
+- Provide realistic scenario context
+- Make it relatable to real-world security situations
+
+**3. Flag Design**
+- Format: CTF{{meaningful_content}}
+- The flag should be discoverable through appropriate {difficulty}-level exploitation
+- Must relate to the learning objectives
+
+**4. Hints System** (Create {hint_count} progressive hints)
+{hint_instructions}
+
+**5. Environment Setup**
+- Specify environment type (web_application, ssh_access, docker_container, etc.)
+- List required tools
+- Provide access credentials if needed
+- Include any necessary files or configurations
+- If downloadable files are needed, include files array:
+  [
+    {
+      "name": "vulnerable-app.zip",
+      "url": "https://example.com/files/vulnerable-app.zip",
+      "size": "2.5MB",
+      "description": "Vulnerable web application source code",
+      "checksum": "sha256:abc123..."
+    }
+  ]
+  NOTE: Files array is optional - only include if the challenge requires downloadable materials
+
+**6. Solutions** (Provide at least 1 comprehensive solution)
+{solution_instructions}
+IMPORTANT: Solution difficulty should match the scenario difficulty:
+- Use the same value: beginner, intermediate, advanced, or expert
+
+**7. Feedback Templates**
+Create feedback messages for these scenarios:
+- Correct answer: Celebratory and educational
+- Invalid format: Helpful format guidance
+- Close attempt: Encouraging with hints
+- Wrong approach: Redirecting without spoiling
+- Time warning: Gentle reminder with optional help
+
+**8. Educational Content**
+- "What is": Clear explanation of the vulnerability/concept
+- "How it works": Technical mechanism
+- "Real-world examples": 2-3 relevant security incidents or applications
+- "Prevention": Best practices to prevent this vulnerability
+- "Related topics": Connected concepts for further learning
+- "References": 2-3 authoritative sources
+
+=== OUTPUT FORMAT REQUIREMENTS ===
+
+Respond with a valid JSON object following this structure:
+
+{{
+  "basic_info": {{
+    "title": "Your challenge title here",
+    "topic": "{topic}",
+    "subtopic": "{subtopic}",
+    "difficulty": "{difficulty}",
+    "estimated_time": {estimated_time},
+    "learning_objectives": [
+      "Objective 1",
+      "Objective 2"
+    ],
+    "tags": ["tag1", "tag2", "tag3"]
+  }},
+  "game_content": {{
+    "description": "300-600 character description",
+    "background_story": "100-300 character background",
+    "flag": "CTF{{your_flag_here}}",
+    "flag_format": "CTF{{...}}",
+    "flag_validation": "exact_match",
+    "max_score": 100,
+    "environment": {{
+      "type": "web_application",
+      "description": "Environment description",
+      "required_tools": ["tool1", "tool2"],
+      "access_info": {{}},
+      "url": "http://example.com",
+      "credentials": {{
+        "username": "user",
+        "password": "pass"
+      }},
+      "tech_stack": ["PHP", "MySQL"]
+    }},
+    "hints": [
+      {{
+        "id": 1,
+        "level": "minimal",
+        "content": "First hint content",
+        "suggested_cost": 10,
+        "unlock_condition": "Available after 5 minutes"
+      }},
+      {{
+        "id": 2,
+        "level": "guided",
+        "content": "Second hint content",
+        "suggested_cost": 15,
+        "unlock_condition": "Available after 2 failed attempts"
+      }}
+    ],
+    "feedback_templates": {{
+      "correct": "Congratulations! You've successfully...",
+      "invalid_format": "The flag format should be CTF{{...}}",
+      "close": "You're very close! Consider...",
+      "wrong_approach": "This approach won't work because...",
+      "time_warning": "You have 10 minutes remaining. Would you like a hint?"
+    }},
+    "solutions": [
+      {{
+        "method": "SQL Injection via login form",
+        "difficulty": "{difficulty}",
+        "steps": [
+          "Step 1: Identify the login form",
+          "Step 2: Test for SQL injection vulnerability",
+          "Step 3: Craft payload to bypass authentication",
+          "Step 4: Extract the flag from database"
+        ],
+        "payload": "' OR '1'='1' --",
+        "explanation": "This works because the application doesn't sanitize user input...",
+        "prerequisites": ["Basic SQL knowledge", "Understanding of web forms"]
+      }}
+    ],
+    "educational_content": {{
+      "what_is": "SQL Injection is a code injection technique...",
+      "how_it_works": "SQL injection exploits vulnerabilities in an application's database layer...",
+      "real_world_examples": [
+        "2012 LinkedIn breach affected 6.5 million users",
+        "Heartland Payment Systems breach exposed 130 million credit cards"
+      ],
+      "prevention": "Use parameterized queries, input validation, and least privilege principles...",
+      "related_topics": ["Input validation", "Prepared statements", "Web application firewalls"],
+      "references": [
+        "OWASP SQL Injection Guide",
+        "NIST Secure Coding Guidelines"
+      ]
+    }}
+  }}
+}}
+
+=== QUALITY CHECKLIST ===
+Before responding, ensure:
+✓ Description is exactly 300-600 characters
+✓ Background story is exactly 100-300 characters  
+✓ Flag matches CTF{{...}} format
+✓ Exactly {hint_count} hints included
+✓ Hints are progressive (increasing detail and cost)
+✓ At least 1 complete solution with all required fields
+✓ All feedback templates are present
+✓ Educational content is comprehensive
+✓ JSON is valid and properly formatted
+
+{custom_instructions}
+
+Generate the CTF scenario now.
